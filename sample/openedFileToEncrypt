@@ -1,0 +1,183 @@
+1 Úvod
+Varování 1.1: Studijní text je ve fázi přerodu z dřívějšího textu pro předmět BI-ZMA. V prů- běhu semestru bude proto postupně dorůstat. Pokud v textu objevíte chyby, hlaste je prosím pomocí issue trackeru na Gitlabu.
+Tento dokument doplňuje slidy k přednášce předmětu Matematická analýza (BI-MA1). Slidy slouží primárně jako doplněk k živé prezentaci a příliš se nehodí ke studiu či tisku. Slidy zejména neobsahují vysvětlující komentáře přednášejícího a mohou být proto bez těchto podpůrných informací nejasné až matoucí. V tomto textu je uvedeno vše co na slidech včetně dalších dodatečných informací a zajímavostí.
+V tomto úvodu je vhodné seznámit milého čtenáře s historií výuky matematické analýzy na FIT. Jednosemestrální předmět Základy matematické analýzy (BI-ZMA), předchůdce BI-MA1 a BI-MA2, byl po zrodu fakulty nejprve vyučován pod vedením prof. Ing. Edity Pelantové, CSc. (KM FJFI). Poté předmět převzali Ing. Tomáš Kalvoda, PhD. a doc. RNDr. Jaroslav Milota, CSc. V roce 2021 byl při reakreditaci studijního programu tento předmět rozdělen a přepracován do dvousemestrálního kurzu Matematická analýza 1 a 2. V aktuálním semestru je přednášen Ing. Tomášem Kalvodou, Ph.D. a Ing. Ivo Petrem, Ph.D. Tento text, a pojetí přednášky vůbec, jsou výsledkem tohoto postupného vývoje.
+Dále tento úvod využijeme k seznámení čtenáře s formálními náležitostmi tohoto do- kumentu. Pro větší přehlednost a zvýraznění logické struktury látky je výklad standardně členěn do definic, vět, důkazů, příkladů a občas i poznámek. Definice a věty jsou číslovány průběžně v celém dokumentu. Připomeňme čtenáři význam takto označených částí textu.
+• Definice ukotvuje definovaný pojem. V celém textu má od tohoto okamžiku daný pojem jednoznačný význam (porovnejte s definicí funkce/metody ve zdrojovém kódu).
+• Věta (případně Tvrzení, Důsledek, Lemma) obsahuje tvrzení o již dříve definovaných pojmech.
+• Důkaz je argument postavený na logických pravidlech zaručující pravdivost dané věty (tvrzení, důsledku či lemmatu). Jde v podstatě o certifikát pravdivosti.
+Pouze ze začátku některé pojmy, které by studentům měly být známy už z dřívějšího studia, explicitně neformulujeme jako samostatné definice, ale stručně je pouze připomínáme přímo v textu.
+Rovnice a obrázky jsou v textu číslovány v rámci kapitol. Odkaz na rovnici poznáte podle závorek, např. (2.1) je odkaz na první číslovanou rovnici v druhé kapitole. Konec důkazů označujeme symbolem1 . Na konci tohoto dokumentu je čtenáři k dispozici seznam používaných symbolů (kapitola 11) se stručným vysvětlením významu, rejstřík pojmů pro
+1Tzv. Halmosův náhrobek. Paul Halmos (1916 – 2006) byl americký matematik maďarského původu. 1
+
+1. Úvod
+pohodlnější vyhledávání a seznam zajímavých odkazů na literaturu. Dále je hlavní text doplněn dodatkem (kapitola 10) obsahujícím shrnutí základních vlastností zobrazení.
+V textu také průběžně naleznete „otázky“, které obsahují zvídavé náměty na zamyšlení nebo kontrolují čtenářovo porozumění. Odpovědi na tyto otázky naleznete na konci PDF, nebo je lze rovnou rozkliknout v HTML verzi dokumentu.
+Informace týkající se samotné organizace předmětu, jako například podmínky získání zá- počtu a složení zkoušky, jsou uvedeny na oficiálních stránkách předmětu BI-MA1. Studentům je dále k dispozici elektronická cvičebnice příkladů MARAST. Zde lze najít příklady, přípravy pro prosemináře a i procvičovací kvízy.
+O Matematické analýze bylo napsáno již mnoho učebnic, skript a knih s rozmanitými přístupy k problematice a různé úrovně. Případným zájemcům o další studium, či alternativní způsob výkladu, lze doporučit publikace [4] a [5]. Ze zahraniční literatury by našeho čtenáře mohly zaujmout knížky [7], [8], [1], či [6]. Tyto knihy ovšem pokrývají podstatně více látky než tento text. Je proto nutné při jejich využití vycházet z materiálů určených pro tento předmět. Zájemce o motivačně bohatý text pokrývající i historické detaily týkající se této látky lze doporučit vynikající knížku [9].
+Pokud laskavý čtenář v textu objeví nejasnosti či chyby, nechť je prosím hlásí formou issue v BI-MA1 repozitář na fakultním gitlabu. Alternativně k tomuto účelu může využít i email (tomas.kalvoda@fit.cvut.cz). Tento úvod zakončíme motivačním citátem.
+The calculus was the first achievement of modern mathematics and it is difficult to overestimate its importance. I think it defines more unequivocally than anything else the inception of modern mathematics; and the system of mathematical analysis, which is its logical development, still constitutes the greatest technical advance in exact thinking.
+John von Neumann
+ 2
+
+2 Reálná čísla
+V tomto kurzu předpokládáme, že čtenář je již seznámen se základními způsoby zadání množin (výčtem, vlastností), množinovými operacemi (průnik, sjednocení, rozdíl a doplněk) a orientuje se mezi číselnými množinami (přirozená, celá, racionální a reálná čísla – těm se ale v této kapitole budeme věnovat znovu a podrobněji). Dále na straně čtenáře předpokládáme znalost vlastností elementárních funkcí (polynomiální, racionální, mocninné, exponenciální, logaritmické a trigonometrické). V neposlední řadě též vyžadujeme znalost základních kom- binatorických vztahů, to jest definici a kombinatorický význam faktoriálu, kombinačního čísla, či znalost binomické věty. Z předchozího studia také vyžadujeme znalost zobrazení a souvisejících pojmů. Pro pohodlí čtenáře a pro zafixování notace tuto poslední partii látky stručně shrnujeme v kapitole 10.
+Pokud si čtenář v některých z těchto zmíněných partiích není jistý, může si znalosti osvěžit například v prázdninovém Přípravném kurzu matematiky (BI-PKM), nebo s pomocí své oblíbené učebnice středoškolské matematiky. Některá z těchto témat jsou i obsahem prvního prosemináře, který chápeme jako úvodní rozcvičku před hlavními tématy semestru. V neposlední řadě je dobré si osvěžit některé partie prvosemestrálních předmětů BI-DML a BI-LA1.
+Náš výklad nyní zahájíme popisem množiny reálných čísel, která v našem výkladu mate- matické analýzy představuje ústřední pojem. V průběhu tohoto a příštího semestru budeme totiž studovat
+• reálné číselné posloupnosti,
+• reálné funkce jedné reálné proměnné,
+• reálné číselné řady,
+• reálné funkce více reálných proměnných.
+Je tedy očividné, že znalost vlastností množiny reálných čísel budeme intenzivně využívat. Množinu reálných čísel nejprve představíme jako přirozené rozšíření množiny racionálních čísel.
+2.1 Přirozená, celá a racionální čísla
+Označme N = {1,2,3,...} množinu přirozených čísel, Z = {...,−2,−1,0,1,2,...} mno- žinu celých čísel a Q = pq | p ∈ Z, q ∈ N a p, q jsou nesoudělná množinu racionálních čísel. Na těchto množinách, které jsou v množinovém vztahu N ( Z ( Q, umíme přirozeně sčítat
+3
+
+2. Reálná čísla Přirozená, celá a racionální čísla
+a násobit, přičemž všechny tři množiny jsou vůči těmto operacím uzavřené1. Tyto operace dále pro každé a, b, c ∈ Q (nebo Z a N) splňují:
+ a +b=b+a,
+a +(b+c)=(a +b)+c,
+a ·(b+c)=(a·b)+(a·c),
+a ·b=b·a, a·(b·c)=(a·b)·c,
+(komutativita), (asociativita), (distributivita).
+V souladu se zažitou konvencí zavádíme přednost násobení před sčítáním a distributivitu proto bez nebezpečí nedorozumnění můžeme zkráceně zapsat také bez uzávorkovaní na pravé straně, tedy
+a · (b + c) = a · b + a · c.
+Poznámka 2.1: Priorita operací je v programovacích jazycích známa pod termínem operator precedence. Viz např. prioritu operátorů v jazyce C. Uvědomte si, že bez zavedení této konvence například výraz 3 · 5 + 7 nemá smysl – nelze ho jednoznačně interpretovat. Tento postřeh není vázán pouze na sčítání a násobení reálných čísel. I když tato poznámka může znít triviálně, existuje řada studentů, kteří se ve svých úvahách právě kvůli lajdácké závorkové notaci dostanou do potíží2.
+„Inverzními“ operacemi ke sčítání a násobení jsou odčítání a dělení nenulovým číslem. Vůči nim však nejsou všechny výše uvedené množiny uzavřené. Jak už víme, přirozená čísla můžeme bez omezení pouze sčítat a násobit, aniž bychom množinu přirozených čísel opustili. Celá čísla můžeme bez omezení navíc odčítat a racionální čísla odčítat a dělit jakýmkoli nenulovým racionálním číslem. Znamená to tedy, že v Z můžeme (jednoznačně) řešit rovnice typu
+a+x=b, a,b∈Z,
+pro neznámou x ∈ Z. Toto nelze říct o množině přirozených čísel (rovnice x + 5 = 3 pro
+neznámou x nemá mezi přirozenými čísly řešení). Podobně v Q můžeme řešit rovnice typu
+q·x=p, p,q∈Q, q̸=0,
+pro neznámou x ∈ Q. Toto tvrzení ale neplatí o celých číslech (rovnice 4x = 5 nemá celočíselné řešení x).
+Poznámka2.2(Cotovšechnoznamená?): Zatímtorozšiřovánímčíselnýchmnožinjemožné vidět praktickou potřebu popisu stále sofistikovanějších reálných situací. Přirozená čísla nám postačí k popisu počtu stejných objektů (deset krav, jeden vlk atp.). V jejich rámci už ale snadno nevyjádříme např. koncept „dluhu“. Tento problém odstraňují celá čísla. Pomocí celých čísel ale nejsme jednoduše schopni popisovat části celků (půl koláče, tři pětiny senátu atp.). Tento nedostatek odstraňují racionální čísla. S jejich pomocí můžeme snadno pracovat se zlomky (částmi) celků. Za chvilku si ukážeme i motivaci pro přechod od racionálních k reálným číslům. Tento přechod bude motivován v podstatě geometrickými úvahami.
+Podívejme se nyní podrobněji na algebraickou3 strukturu racionálních čísel. Mezi racio- nálními čísly existují čísla 0 (nula) a 1 (jedna) splňující
+a+0=a a a·1=a,
+1To znamená, že výsledek operace nad čísly z dané množiny je opět číslo z této množiny. 2Ty mohou být drobné, ale i fatální.
+3Tj. co se sčítání/odčítání a násobení/dělení týče.
+ 4
+
+2. Reálná čísla Přirozená, celá a racionální čísla
+prokaždéa ∈ Q.Dálekekaždémua ∈ Qexistuječíslo−a ∈ Qsplňujícía+(−a) = (−a) + a = 0. Podobně, ke každému nenulovému číslu a ∈ Q existuje číslo a−1 ∈ Q splňující
+a·a−1 =a−1 ·a=1.
+V předchozích odstavcích jsme si ukázali, že množina racionálních čísel spolu s operacemi
+sčítání a násobení splňuje asociativní, distributivní a komutativní zákony, existují v ní prvky 0 a 1 a opačné, resp. inverzní, prvky popsané výše. To znamená, že racionální čísla spolu s operacemi sčítání a násobení tvoří číselné těleso.
+Všechny tyto vlastnosti tělesa (Q, +, ·) lze pomocí grupové terminologie (viz BI-LA1) kompaktně vyjádřit následujícími požadavky:
+• (Q, +) je Abelovská grupa s neutrálním prvkem 0 (nula),
+• (Q r {0}, ·) je Abelovská grupa s neutrálním prvkem 1 (jednička), • platí distributivita násobení vůči sčítání.
+Otázka 2.1: Tvoří přirozená čísla spolu s operacemi sčítání a násobení těleso? A jak je tomu v případě celých čísel?
+Uspořádání racionálních čísel
+Vraťme se zpět k racionálním číslům. Vedle výše zmíněných algebraických vlastností mají racionální čísla další zajímavé vlastnosti. Racionální čísla lze porovnávat podle velikosti. Jsou-li a a b racionální čísla, pak zápisem a < b vyjadřujeme, že číslo a je (ostře) menší než číslo b, a tuto vlastnost definujeme jako
+a <b, právěkdyž 0<b−a, (2.1)
+přičemž pro racionální číslo c = b − a zapsané v základním tvaru jako c = pq platí c > 0, právě když p, q ∈ N (čitatel i jmenovatel jsou kladná přirozená čísla). Takto zavedené porovnání (označované symbolem <) představuje relaci (ostrého) uspořádání na Q, která je úplná, tj. pro libovolná dvě různá racionální čísla a a b lze rozhodnout, zda-li a < b nebo b < a. Když b < a tak říkáme, že a je (ostře) větší než b a zapisujeme a > b.
+Tato relace uspořádání < je svázána s operací sčítání a násobení známými středoškolskými pravidly pro počítání s nerovnicemi. Připomeňme, že pro každé a, b, c ∈ Q platí tvrzení
+ a<b ⇒ a+c<b+c,
+a >0∧b>0 ⇒ a·b>0. (2.2)
+a
+Z těchto vlastností lze snadno odvodit další známé vztahy, jako například
+a<b∧c>0 ⇒ a·c<b·c
+a
+platné pro každé racionální a, b a c. Vzpomeňte si na středoškolské úlohy na řešení nerovnic.
+a<b∧c<0 ⇒ a·c>b·c
+Otázka 2.2: Pomocí výše definovaného uspořádání < na množině racionálních čísel (viz
+rovnici (2.1) a text hned pod ní) dokažte implikaci (2.2). 5
+
+2. Reálná čísla Přirozená, celá a racionální čísla
+ b−a 0ab
+Obrázek 2.1: Číselná osa s body a, b ∈ Q. Zde a < b a proto vzdálenost b od a je b − a. 11
+0 √2
+Obrázek 2.2: Bod na číselné ose odpovídající √2 lze zjevně zkonstruovat pomocí úhlopříčky
+čtverce o straně délky 1. Lze ho ale popsat pomocí racionálního čísla?
+Otázka 2.3: Pomocí výše zmíněné definice uspořádání prvků množiny Q dokažte, že 7 < 8 .
+87
+Poznámka 2.3: Pomocí uspořádání < můžeme zavést také (neostré) uspořádání a ≤ b, ekvivalentní platnosti a < b nebo a = b. Pod a ≥ b máme pak přirozeně na mysli b ≤ a.
+Díky existenci úplného uspořádání < na množině Q si můžeme racionální čísla geome- tricky představovat jako body na číselné ose, viz Obrázek 2.1. Skutečně, protože umíme každé racionální číslo porovnat s každým jiným racionálním číslem, můžeme je tímto způso- bem uspořádat na přímce. Bez tohoto úplného uspořádání bychom k takovémuto lineárnímu znázornění racionálních čísel neměli žádný důvod.
+Neúplnost racionálních čísel
+Jak již bylo zmíněno, racionální čísla obvykle graficky znázorňujeme jako body na tzv. číselné ose, tj. na přímce s vyznačeným počátkem odpovídajícím číslu 0. Na Obrázku 2.1 je tímto způsobem znázorněno uspořádání dvou racionálních čísel a jejich vzdálenost.
+V tomto geometrickém znázornění racionálních čísel je každému racionálnímu číslu přiřazen jeden bod na číselné ose. Opak však neplatí. Existují body na této idealizované přímce4, které neodpovídají žádnému racionálnímu číslu. Pokud by číselná osa byla tvořena pouze racionálními čísly, byla by „děravá“. Ilustrujme toto tvrzení na následujícím příkladu.
+Příklad 2.1: Neexistuje kladné racionální řešení rovnice x2 = 2. Graficky toto tvrzení odpovídá nemožnosti popsat bod odpovídající konci úhlopříčky čtverce o straně s velikostí 1 otočeného o 45◦ a s vrcholem v bodě 0 pomocí racionálního čísla, viz Obrázek 2.2.
+Dokažme toto tvrzení sporem. Předpokládejme opak, tj. že existují nesoudělná p, q ∈ N splňující p/q = √2. Potom (p/q)2 = 2 a tudíž p2 (= 2q2) je nutně sudé číslo, čili i p je sudé. Lze ho proto vyjádřit ve tvaru p = 2k, kde k ∈ N. Potom ale platí p2 = 4k2 = 2q2, resp. 2k2 = q2. Číslo q2 a tedy i q je proto sudé. To ale znamená, že p a q jsou soudělná (obě jsou dělitelná číslem 2), což je ale spor s naším předpokladem nesoudělnosti p a q.
+4Pojem bodu na číselné ose zde chápeme intuitivně. Korektní matematická definice již ve skutečnosti využívá reálných čísel.
+       6
+
+2. Reálná čísla Axiom úplnosti a reálná čísla
+2.2 Axiom úplnosti a reálná čísla
+Nyní ukážeme, jak obecně zformulovat požadavek „bezděrovosti“ číselné osy. Předpokládejme, že máme množinu R, která obsahuje racionální čísla, Q ⊂ R, a máme na ní definované operace násobení, sčítání, jejich inverze (odčítání a dělení) a také uspořádání < a všechny tyto operace mají stejné vlastnosti jako u racionálních čísel (tj. jedná se o úplně uspořádané číselné těleso, viz výše).
+Absolutní hodnota a vzdálenost reálných čísel
+Uspořádání < množiny R nám nyní umožňuje definovat veledůležitý pojem absolutní hodnoty a vzdálenosti mezi body R. Vzdálenost dvou reálných čísel a a b definujeme jako hodnotu |a − b|, kde |x| je absolutní hodnota x(∈ R definovaná vztahem
+|x| := x, pro x ≥ 0, (2.3) −x, prox<0.
+Tento zápis je třeba číst takto: hodnota |x| je definována jako x, pokud x je nezáporné a jako −x pokud x je záporné. Způsob zápisu použitý v rovnici (2.3) je poměrně častý a ještě na něj několikrát narazíme. V oblíbeném programovacím jazyce Python bychom například psali
+def abs(x): if x >= 0: return x
+elif x < 0: return -x
+Absolutní hodnota splňuje řadu důležitých vlastností, přímo z definice snadno nahlédnete následující: |a·b| = |a|·|b|, |−a| = |a| a |a/c| = |a|/|c| platné pro každé reálné a, b a nenulové c. Fundamentální vlastností absolutní hodnoty je tzv. trojúhelníková nerovnost, kterou během semestru několikrát v důležité okamžiky využijeme.
+Věta 2.1 (Trojúhelníková nerovnost): Pro libovolná reálná a a b platí nerovnost
+|a+b| ≤ |a|+|b|. (2.4)
+Důkaz. Přímo z definice absolutní hodnoty (2.3) plynou nerovnosti x ≤ |x| a −x ≤ |x| platné pro libovolné x ∈ R. Uvažme libovolné a, b ∈ R. Pokud a + b ≥ 0 potom |a + b| = a + b ≤ |a| + |b|. Je-li a + b < 0 potom |a + b| = −(a + b) = −a + (−b) ≤ |a| + |b|.
+Absolutní hodnota oplývá ještě jednou užitečnou vlastností, kterou použijeme později během semestru. Jde o další nerovnost, kterou si zformulujeme jako tvrzení.
+Tvrzení 2.1 (O absolutní hodnotě rozdílu absolutních hodnot): Pro každé x, y ∈ R platí |x|−|y| ≤ |x−y|.
+Důkaz. Skutečně, díky trojúhelníkové nerovnosti platí
+|x| − |y| = |x − y + y| − |y| ≤ |x − y| + |y| − |y| = |x − y|
+a po prohození x za y a jednoduché úpravě pak i |x| − |y| ≥ −|x − y|. Čili dohromady −|x − y| ≤ |x| − |y| ≤ |x − y|, což je ekvivalentní dokazovanému tvrzení.
+ 7
+
+2. Reálná čísla Axiom úplnosti a reálná čísla Otázka 2.4: Uvažme funkci
+ 1 , x 2 > 1 ,  f ( x ) = 2 , x ∈ − 1 , 12 ,
+3, jinak. Určete hodnoty f(−1/2), f(−2) a f(1).
+Bezděrovost reálné osy
+Než se pustíme do formulace axiomu úplnosti, musíme zavést, či připomenout, ještě jeden důležitý pojem. Pro a, b ∈ R, a < b, označme ⟨a, b⟩ := {x ∈ R | a ≤ x ≤ b} a nazvěme tuto množinu uzavřeným intervalem a body a, b koncovými body tohoto intervalu. Délkou intervalu ⟨a, b⟩ nazýváme číslo |b − a|, tj. vzdálenost jeho koncových bodů. Z vlastností absolutní hodnoty, které jsou stejné jako pro racionální čísla, plyne nerovnost |x − y| ≤ |b − a| platná pro každé x, y ∈ ⟨a, b⟩. √
+ Vraťme se nyní k Příkladu 2.1 a číslu
+rovnice x2 = 2, které značíme √2. Pro √2 musí platit √2 ∈ ⟨1, 2⟩ = I (protože a < 1
+2. Předpokládejme, že R již obsahuje kladné řešení √1
+implikujea2 <a·1<1aa>2implikujea2 >a·2>2),tudížpro 2nemůžeplatitani
+√2 < 1 ani √2 > 2). Rozpůlením I1 podobným způsobem zjistíme, že √2 ∈ ⟨1, 23 ⟩ = I2
+(protože a > 3/2 implikuje a2 > 9/4 > 2). Pokračujeme nadále půlením těchto uzavřených
+intervalů. Protože takto konstruované koncové body jsou vždy racionální čísla a √2 racionální
+není, nikdy se nestane, že by po nějakém dělení byl bod √2 koncovým bodem intervalu,
+a postup tak lze libovolně opakovat. Dostáváme tudíž intervaly I , n ∈ N, uvnitř kterých
+√
+mTusí ležet 2. Pro tyto intervaly platí inkluze I ⊂ I a délka intervalu I je 1 . Tudíž
+n+1 n n 2n−1
++∞ In je nejvýše jednoprvková množina. Opravdu, pro každé 2 různé body, mezi nimiž
+n=1
+je nutně vzdálenost d > 0, existuje m ∈ N takové, že délka intervalu I je menší než d,
+m
+a nemohou tedy oba současně patřit do Im a tedy ani do průniku. Náš požadavek
+√
+2 ∈ R
+v tomto případě znamená, že
+no
+intervaly splňující
+1. In ⊃ In+1 pro libovolné n ∈ N,
+2. pro každé ε > 0 existuje přirozené n tak, že délka In je menší než ε, pak
+\∞ In ̸= ∅. n=1
+(2.5)
++∞
+\In= √2 .
+n=1
+Grafickou ilustraci konstrukce těchto intervalů lze nalézt na Obrázku 2.3.
+Obecný požadavek aby množina R „neměla díry“ můžeme nyní přesně formulovat jako tzv. axiom úplnosti: Každý systém uzavřených a do sebe se vnořujících intervalů, jejichž délky jsou libovolně malé, má neprázdný průnik. Podrobněji, pokud jsou In, n ∈ N, uzavřené
+Je důležité si uvědomit, že axiom úplnosti je to jediné, co odlišuje reálná čísla od racionál- ních. Jak bylo ukázáno výše, racionální čísla tento axiom nesplňují. Algebraicky (vzhledem
+8
+n
+
+2. Reálná čísla
+Axiom úplnosti a reálná čísla
+  I1
+1 √2 2
+I2 1
+54 √232
+Obrázek 2.3: Ilustrace ke konstrukci intervalů I1, I2 a I3 obsahujících √2 s racionálními
+koncovými body.
+k + a ·) mají jinak tyto množiny shodné vlastnosti. Pro úplnost dodejme, že reálná čísla také znázorňujeme jako body na číselné ose, přičemž nyní již každému bodu na této ose odpovídá právě jedno reálné číslo. Z tohoto důvodu číselnou osu nazýváme také reálnou osou.
+Reálná čísla: shrnutí vlastností
+V tomto textu tedy využíváme axiomatickou definici množiny reálných čísel, která intuitivně představuje číselný analog geometrické představy přímky. Skutečná konstrukce5 takovéhoto tělesa je nad rámec tohoto kurzu. Klasická konstrukce pomocí tzv. Dedekindových6 řezů historicky spadá až do druhé poloviny devatenáctého století.
+Definice 2.1 (Reálná čísla / Real numbers): Množinu reálných čísel R chápeme jako číselné těleso (R, +, ·) vybavené úplným uspořádáním <, které splňuje axiom úplnosti.
+Pro pohodlí čtenáře shrňme, co vše za požadavky na operace +, · a < je vlastně v předchozí definici nakladeno:
+• asociativní zákony pro + a ·,
+• komutativní zákony pro + a ·,
+• distributivní zákon (· vůči +),
+• existence nuly (neutrální prvek vůči +) a jedničky (neutrální prvek vůči ·),
+• existence opačných prvků (vůči +),
+• existence inverzních prvků (vůči · a pouze pro nenulové prvky) ,
+• úplné uspořádání <,
+• axiom úplnosti. 5Důkaz existence.
+6Richard Dedekind (1831 – 1916) byl německý matematik.
